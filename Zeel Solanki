@@ -1,0 +1,32 @@
+"""Ace Fitness Club"""
+class AceFitnessClub():
+  def __init__(self, first_name, last_name, age, gender, membership, weightPound):
+    self.first_name = first_name
+    self.last_name = last_name
+    self.age = age
+    self.gender = gender
+    self.membership = membership
+    self.weightPound = weightPound
+    self.weightKilo = round(weightPound/2.2) #if want .0 put ", 0"
+    self.email = first_name + '.' + last_name + '@afclub.com'
+    #converts pounds to kilograms
+  def memFee(self):
+    full_memebership = 200.0
+    if self.membership == "Fulltime" and self.age <= 65:
+      return full_memebership
+    elif self.membership == "Parttime" and self.age <= 65:
+      return full_memebership * 0.75
+    else:
+      return full_memebership * 0.50
+class WeightRoom(AceFitnessClub):
+  pass
+class Aquatic(AceFitnessClub):
+  mem_cost_pool = 300.0
+class Gym(AceFitnessClub):
+  pass
+mem1 = WeightRoom("John", "Doe", 69, "Male", "Fulltime", 151)
+print (mem1.memFee())
+mem2 = Aquatic("Jane", "Doe", 23, "Female", "Parttime", 131)
+print (mem2.mem_cost_pool)
+mem3 = Gym("Jen", "Dallas", 20, "Female", "Fulltime", 129)
+print (mem3.memFee())
